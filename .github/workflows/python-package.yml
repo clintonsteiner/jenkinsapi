@@ -36,6 +36,8 @@ jobs:
           ftp-nyc.osuosl.org:443
           get.jenkins.io:443
           github.com:443
+          api.github.com:443
+          int.api.stepsecurity.io:443
           mirror.xmission.com:443
           motd.ubuntu.com:443
           packages.microsoft.com:443
