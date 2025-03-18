@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="jenkinsapi.command_line package" href="jenkinsapi.command_line.html" /><link rel="prev" title="Using Jenkins API" href="using_jenkinsapi.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>jenkinsapi package - JenkinsAPI 0.3.13 documentation</title>
+        <title>jenkinsapi package - JenkinsAPI 0.3.14.dev2 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
@@ -166,7 +166,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand"> JenkinsAPI 0.3.13 documentation</div></a>
+      <a href="index.html"><div class="brand"> JenkinsAPI 0.3.14.dev2 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -190,7 +190,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text"> JenkinsAPI 0.3.13 documentation</span>
+  <span class="sidebar-brand-text"> JenkinsAPI 0.3.14.dev2 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -198,11 +198,16 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <ul>
+  <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="api.html">User API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="artifact.html">Artifact</a></li>
 <li class="toctree-l1"><a class="reference internal" href="build.html">Build</a></li>
 <li class="toctree-l1"><a class="reference internal" href="using_jenkinsapi.html">Using Jenkins API</a></li>
+<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">jenkinsapi package</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of jenkinsapi package</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="jenkinsapi.command_line.html">jenkinsapi.command_line package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jenkinsapi.utils.html">jenkinsapi.utils package</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="CONTRIBUTING.html">Rules for Contributors</a></li>
 </ul>
 
@@ -260,10 +265,6 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="jenkinsapi.command_line.html#jenkinsapi.command_line.jenkins_invoke.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="jenkinsapi.command_line.html#module-jenkinsapi.command_line.jenkinsapi_version">jenkinsapi.command_line.jenkinsapi_version module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="jenkinsapi.command_line.html#jenkinsapi.command_line.jenkinsapi_version.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="jenkinsapi.command_line.html#module-jenkinsapi.command_line">Module contents</a></li>
@@ -332,7 +333,14 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="jenkinsapi.utils.html#jenkinsapi-utils-simple-post-logger-module">jenkinsapi.utils.simple_post_logger module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jenkinsapi.utils.html#module-jenkinsapi.utils.simple_post_logger">jenkinsapi.utils.simple_post_logger module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jenkinsapi.utils.html#jenkinsapi.utils.simple_post_logger.ServerHandler"><code class="docutils literal notranslate"><span class="pre">ServerHandler</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="jenkinsapi.utils.html#jenkinsapi.utils.simple_post_logger.ServerHandler.do_GET"><code class="docutils literal notranslate"><span class="pre">ServerHandler.do_GET()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="jenkinsapi.utils.html#jenkinsapi.utils.simple_post_logger.ServerHandler.do_POST"><code class="docutils literal notranslate"><span class="pre">ServerHandler.do_POST()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="jenkinsapi.utils.html#module-jenkinsapi.utils">Module contents</a></li>
 </ul>
 </li>
@@ -2593,6 +2601,15 @@ to create node</p>
 <dd></dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="jenkinsapi.node.Node.launch">
+<span class="sig-name descname"><span class="pre">launch</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/jenkinsapi/node.html#Node.launch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#jenkinsapi.node.Node.launch" title="Link to this definition">¶</a></dt>
+<dd><p>Tries to launch a connection with the slave if it is currently
+disconnected. Because launching a connection with the slave does not
+mean it is online (a slave can be launched, but set offline), this
+function does not check if the launch was successful.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="jenkinsapi.node.Node.load_config">
 <span class="sig-name descname"><span class="pre">load_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/jenkinsapi/node.html#Node.load_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#jenkinsapi.node.Node.load_config" title="Link to this definition">¶</a></dt>
 <dd><p>Loads the config.xml for the node allowing it to be re-queried
@@ -2820,7 +2837,7 @@ the plugin hpi file.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="jenkinsapi.plugins.Plugins.iteritems">
-<span class="sig-name descname"><span class="pre">iteritems</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Generator</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#jenkinsapi.plugin.Plugin" title="jenkinsapi.plugin.Plugin"><span class="pre">Plugin</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/jenkinsapi/plugins.html#Plugins.iteritems"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#jenkinsapi.plugins.Plugins.iteritems" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">iteritems</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Generator</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'Plugin'</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/jenkinsapi/plugins.html#Plugins.iteritems"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#jenkinsapi.plugins.Plugins.iteritems" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -3297,8 +3314,26 @@ to use pip or distribute to automatically install this project.</p>
       <footer>
         
         <div class="related-pages">
-          
-          
+          <a class="next-page" href="jenkinsapi.command_line.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">jenkinsapi.command_line package</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="using_jenkinsapi.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Using Jenkins API</div>
+                
+              </div>
+            </a>
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
@@ -3714,6 +3749,7 @@ to use pip or distribute to automatically install this project.</p>
 <li><a class="reference internal" href="#jenkinsapi.node.Node.is_jnlpagent"><code class="docutils literal notranslate"><span class="pre">Node.is_jnlpagent()</span></code></a></li>
 <li><a class="reference internal" href="#jenkinsapi.node.Node.is_online"><code class="docutils literal notranslate"><span class="pre">Node.is_online()</span></code></a></li>
 <li><a class="reference internal" href="#jenkinsapi.node.Node.is_temporarily_offline"><code class="docutils literal notranslate"><span class="pre">Node.is_temporarily_offline()</span></code></a></li>
+<li><a class="reference internal" href="#jenkinsapi.node.Node.launch"><code class="docutils literal notranslate"><span class="pre">Node.launch()</span></code></a></li>
 <li><a class="reference internal" href="#jenkinsapi.node.Node.load_config"><code class="docutils literal notranslate"><span class="pre">Node.load_config()</span></code></a></li>
 <li><a class="reference internal" href="#jenkinsapi.node.Node.offline_reason"><code class="docutils literal notranslate"><span class="pre">Node.offline_reason()</span></code></a></li>
 <li><a class="reference internal" href="#jenkinsapi.node.Node.set_config_element"><code class="docutils literal notranslate"><span class="pre">Node.set_config_element()</span></code></a></li>
@@ -3874,7 +3910,7 @@ to use pip or distribute to automatically install this project.</p>
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=a88e2c6e"></script>
+</div><script src="_static/documentation_options.js?v=c20607ac"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/furo.js?v=5fa4622c"></script>

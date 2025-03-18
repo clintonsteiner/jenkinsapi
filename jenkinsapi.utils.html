@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Rules for Contributors" href="CONTRIBUTING.html" /><link rel="prev" title="jenkinsapi.command_line package" href="jenkinsapi.command_line.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>jenkinsapi.utils package - JenkinsAPI 0.3.13 documentation</title>
+        <title>jenkinsapi.utils package - JenkinsAPI 0.3.14.dev2 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
@@ -166,7 +166,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand"> JenkinsAPI 0.3.13 documentation</div></a>
+      <a href="index.html"><div class="brand"> JenkinsAPI 0.3.14.dev2 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -190,7 +190,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text"> JenkinsAPI 0.3.13 documentation</span>
+  <span class="sidebar-brand-text"> JenkinsAPI 0.3.14.dev2 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -198,11 +198,16 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <ul>
+  <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="api.html">User API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="artifact.html">Artifact</a></li>
 <li class="toctree-l1"><a class="reference internal" href="build.html">Build</a></li>
 <li class="toctree-l1"><a class="reference internal" href="using_jenkinsapi.html">Using Jenkins API</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="jenkinsapi.html">jenkinsapi package</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of jenkinsapi package</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="jenkinsapi.command_line.html">jenkinsapi.command_line package</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">jenkinsapi.utils package</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="CONTRIBUTING.html">Rules for Contributors</a></li>
 </ul>
 
@@ -279,12 +284,12 @@
 <p>Launch jenkins</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="jenkinsapi.utils.jenkins_launcher.JenkinsLancher.JENKINS_LTS_WAR_URL">
-<span class="sig-name descname"><span class="pre">JENKINS_LTS_WAR_URL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://updates.jenkins.io/stable/latest/jenkins.war'</span></em><a class="headerlink" href="#jenkinsapi.utils.jenkins_launcher.JenkinsLancher.JENKINS_LTS_WAR_URL" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">JENKINS_LTS_WAR_URL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://get.jenkins.io/war-stable/latest/jenkins.war'</span></em><a class="headerlink" href="#jenkinsapi.utils.jenkins_launcher.JenkinsLancher.JENKINS_LTS_WAR_URL" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="jenkinsapi.utils.jenkins_launcher.JenkinsLancher.JENKINS_WEEKLY_WAR_URL">
-<span class="sig-name descname"><span class="pre">JENKINS_WEEKLY_WAR_URL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://updates.jenkins.io/latest/jenkins.war'</span></em><a class="headerlink" href="#jenkinsapi.utils.jenkins_launcher.JenkinsLancher.JENKINS_WEEKLY_WAR_URL" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">JENKINS_WEEKLY_WAR_URL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'http://get.jenkins.io/war/latest/jenkins.war'</span></em><a class="headerlink" href="#jenkinsapi.utils.jenkins_launcher.JenkinsLancher.JENKINS_WEEKLY_WAR_URL" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -488,8 +493,25 @@ way to access Jenkins.</p>
 </dd></dl>
 
 </section>
-<section id="jenkinsapi-utils-simple-post-logger-module">
-<h2>jenkinsapi.utils.simple_post_logger module<a class="headerlink" href="#jenkinsapi-utils-simple-post-logger-module" title="Link to this heading">¶</a></h2>
+<section id="module-jenkinsapi.utils.simple_post_logger">
+<span id="jenkinsapi-utils-simple-post-logger-module"></span><h2>jenkinsapi.utils.simple_post_logger module<a class="headerlink" href="#module-jenkinsapi.utils.simple_post_logger" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="jenkinsapi.utils.simple_post_logger.ServerHandler">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jenkinsapi.utils.simple_post_logger.</span></span><span class="sig-name descname"><span class="pre">ServerHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jenkinsapi/utils/simple_post_logger.html#ServerHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#jenkinsapi.utils.simple_post_logger.ServerHandler" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleHTTPRequestHandler</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="jenkinsapi.utils.simple_post_logger.ServerHandler.do_GET">
+<span class="sig-name descname"><span class="pre">do_GET</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/jenkinsapi/utils/simple_post_logger.html#ServerHandler.do_GET"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#jenkinsapi.utils.simple_post_logger.ServerHandler.do_GET" title="Link to this definition">¶</a></dt>
+<dd><p>Serve a GET request.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jenkinsapi.utils.simple_post_logger.ServerHandler.do_POST">
+<span class="sig-name descname"><span class="pre">do_POST</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/jenkinsapi/utils/simple_post_logger.html#ServerHandler.do_POST"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#jenkinsapi.utils.simple_post_logger.ServerHandler.do_POST" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </section>
 <section id="module-jenkinsapi.utils">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-jenkinsapi.utils" title="Link to this heading">¶</a></h2>
@@ -502,8 +524,26 @@ way to access Jenkins.</p>
       <footer>
         
         <div class="related-pages">
-          
-          
+          <a class="next-page" href="CONTRIBUTING.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Rules for Contributors</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="jenkinsapi.command_line.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">jenkinsapi.command_line package</div>
+                
+              </div>
+            </a>
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
@@ -597,7 +637,14 @@ way to access Jenkins.</p>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#jenkinsapi-utils-simple-post-logger-module">jenkinsapi.utils.simple_post_logger module</a></li>
+<li><a class="reference internal" href="#module-jenkinsapi.utils.simple_post_logger">jenkinsapi.utils.simple_post_logger module</a><ul>
+<li><a class="reference internal" href="#jenkinsapi.utils.simple_post_logger.ServerHandler"><code class="docutils literal notranslate"><span class="pre">ServerHandler</span></code></a><ul>
+<li><a class="reference internal" href="#jenkinsapi.utils.simple_post_logger.ServerHandler.do_GET"><code class="docutils literal notranslate"><span class="pre">ServerHandler.do_GET()</span></code></a></li>
+<li><a class="reference internal" href="#jenkinsapi.utils.simple_post_logger.ServerHandler.do_POST"><code class="docutils literal notranslate"><span class="pre">ServerHandler.do_POST()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-jenkinsapi.utils">Module contents</a></li>
 </ul>
 </li>
@@ -610,7 +657,7 @@ way to access Jenkins.</p>
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=a88e2c6e"></script>
+</div><script src="_static/documentation_options.js?v=c20607ac"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/furo.js?v=5fa4622c"></script>

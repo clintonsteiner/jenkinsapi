@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="#" /><link rel="search" title="Search" href="search.html" />
 
-    <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 --><title>Index - JenkinsAPI 0.3.13 documentation</title>
+    <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 --><title>Index - JenkinsAPI 0.3.14.dev2 documentation</title>
 <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
@@ -164,7 +164,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand"> JenkinsAPI 0.3.13 documentation</div></a>
+      <a href="index.html"><div class="brand"> JenkinsAPI 0.3.14.dev2 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -188,7 +188,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text"> JenkinsAPI 0.3.13 documentation</span>
+  <span class="sidebar-brand-text"> JenkinsAPI 0.3.14.dev2 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -201,6 +201,11 @@
 <li class="toctree-l1"><a class="reference internal" href="artifact.html">Artifact</a></li>
 <li class="toctree-l1"><a class="reference internal" href="build.html">Build</a></li>
 <li class="toctree-l1"><a class="reference internal" href="using_jenkinsapi.html">Using Jenkins API</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="jenkinsapi.html">jenkinsapi package</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of jenkinsapi package</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="jenkinsapi.command_line.html">jenkinsapi.command_line package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jenkinsapi.utils.html">jenkinsapi.utils package</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="CONTRIBUTING.html">Rules for Contributors</a></li>
 </ul>
 
@@ -379,10 +384,10 @@
 </li>
         <li><a href="jenkinsapi.html#jenkinsapi.queue.Queue.delete_item_by_id">delete_item_by_id() (jenkinsapi.queue.Queue method)</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="jenkinsapi.html#jenkinsapi.jenkins.Jenkins.delete_job">delete_job() (jenkinsapi.jenkins.Jenkins method)</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="jenkinsapi.html#jenkinsapi.jenkins.Jenkins.delete_node">delete_node() (jenkinsapi.jenkins.Jenkins method)</a>
 </li>
         <li><a href="jenkinsapi.html#jenkinsapi.jenkins.Jenkins.delete_plugin">delete_plugin() (jenkinsapi.jenkins.Jenkins method)</a>
@@ -392,6 +397,10 @@
         <li><a href="jenkinsapi.html#jenkinsapi.jenkins.Jenkins.delete_view_by_url">delete_view_by_url() (jenkinsapi.jenkins.Jenkins method)</a>
 </li>
         <li><a href="jenkinsapi.html#jenkinsapi.job.Job.disable">disable() (jenkinsapi.job.Job method)</a>
+</li>
+        <li><a href="jenkinsapi.utils.html#jenkinsapi.utils.simple_post_logger.ServerHandler.do_GET">do_GET() (jenkinsapi.utils.simple_post_logger.ServerHandler method)</a>
+</li>
+        <li><a href="jenkinsapi.utils.html#jenkinsapi.utils.simple_post_logger.ServerHandler.do_POST">do_POST() (jenkinsapi.utils.simple_post_logger.ServerHandler method)</a>
 </li>
     </ul></td>
   </tr></table>
@@ -1018,13 +1027,6 @@
 </li>
         </ul></li>
         <li>
-    jenkinsapi.command_line.jenkinsapi_version
-
-        <ul>
-          <li><a href="jenkinsapi.command_line.html#module-jenkinsapi.command_line.jenkinsapi_version">module</a>
-</li>
-        </ul></li>
-        <li>
     jenkinsapi.config
 
         <ul>
@@ -1115,8 +1117,6 @@
           <li><a href="jenkinsapi.html#module-jenkinsapi.label">module</a>
 </li>
         </ul></li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li>
     jenkinsapi.mutable_jenkins_thing
 
@@ -1124,6 +1124,8 @@
           <li><a href="jenkinsapi.html#module-jenkinsapi.mutable_jenkins_thing">module</a>
 </li>
         </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li>
     jenkinsapi.node
 
@@ -1223,6 +1225,13 @@
 </li>
         </ul></li>
         <li>
+    jenkinsapi.utils.simple_post_logger
+
+        <ul>
+          <li><a href="jenkinsapi.utils.html#module-jenkinsapi.utils.simple_post_logger">module</a>
+</li>
+        </ul></li>
+        <li>
     jenkinsapi.view
 
         <ul>
@@ -1294,6 +1303,8 @@
     <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="jenkinsapi.html#jenkinsapi.label.Label">Label (class in jenkinsapi.label)</a>
 </li>
+        <li><a href="jenkinsapi.html#jenkinsapi.node.Node.launch">launch() (jenkinsapi.node.Node method)</a>
+</li>
         <li><a href="jenkinsapi.html#jenkinsapi.executor.Executor.likely_stuck">likely_stuck() (jenkinsapi.executor.Executor method)</a>
 </li>
     </ul></td>
@@ -1317,8 +1328,6 @@
         <li><a href="jenkinsapi.command_line.html#jenkinsapi.command_line.jenkins_invoke.main">main() (in module jenkinsapi.command_line.jenkins_invoke)</a>
 
         <ul>
-          <li><a href="jenkinsapi.command_line.html#jenkinsapi.command_line.jenkinsapi_version.main">(in module jenkinsapi.command_line.jenkinsapi_version)</a>
-</li>
           <li><a href="jenkinsapi.command_line.html#jenkinsapi.command_line.jenkins_invoke.JenkinsInvoke.main">(jenkinsapi.command_line.jenkins_invoke.JenkinsInvoke class method)</a>
 </li>
         </ul></li>
@@ -1347,8 +1356,6 @@
           <li><a href="jenkinsapi.command_line.html#module-jenkinsapi.command_line">jenkinsapi.command_line</a>
 </li>
           <li><a href="jenkinsapi.command_line.html#module-jenkinsapi.command_line.jenkins_invoke">jenkinsapi.command_line.jenkins_invoke</a>
-</li>
-          <li><a href="jenkinsapi.command_line.html#module-jenkinsapi.command_line.jenkinsapi_version">jenkinsapi.command_line.jenkinsapi_version</a>
 </li>
           <li><a href="jenkinsapi.html#module-jenkinsapi.config">jenkinsapi.config</a>
 </li>
@@ -1405,6 +1412,8 @@
           <li><a href="jenkinsapi.utils.html#module-jenkinsapi.utils.manifest">jenkinsapi.utils.manifest</a>
 </li>
           <li><a href="jenkinsapi.utils.html#module-jenkinsapi.utils.requester">jenkinsapi.utils.requester</a>
+</li>
+          <li><a href="jenkinsapi.utils.html#module-jenkinsapi.utils.simple_post_logger">jenkinsapi.utils.simple_post_logger</a>
 </li>
           <li><a href="jenkinsapi.html#module-jenkinsapi.view">jenkinsapi.view</a>
 </li>
@@ -1592,6 +1601,8 @@
         <li><a href="api.html#jenkinsapi.api.search_artifacts">search_artifacts() (in module jenkinsapi.api)</a>, <a href="jenkinsapi.html#jenkinsapi.api.search_artifacts">[1]</a>
 </li>
         <li><a href="jenkinsapi.html#jenkinsapi.credential.SecretTextCredential">SecretTextCredential (class in jenkinsapi.credential)</a>
+</li>
+        <li><a href="jenkinsapi.utils.html#jenkinsapi.utils.simple_post_logger.ServerHandler">ServerHandler (class in jenkinsapi.utils.simple_post_logger)</a>
 </li>
         <li><a href="jenkinsapi.html#jenkinsapi.node.Node.set_config_element">set_config_element() (jenkinsapi.node.Node method)</a>
 </li>
@@ -1781,7 +1792,7 @@
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=a88e2c6e"></script>
+</div><script src="_static/documentation_options.js?v=c20607ac"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/furo.js?v=5fa4622c"></script>
