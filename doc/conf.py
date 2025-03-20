@@ -42,7 +42,11 @@ extensions = [
     "sphinx.ext.doctest",
     "sphinx.ext.viewcode",
     "myst_parser",
+    "sphinx_sitemap",
 ]
+
+html_baseurl = "https://jenkinsapi.uk/"
+html_extra_path = ["robots.txt"]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]

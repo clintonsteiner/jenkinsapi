@@ -90,6 +90,7 @@ docs = [
     "myst-parser>=3.0.1",
     "pygments>=2.19.1",
     "sphinx>=7.1.2",
+    "sphinx-sitemap>=2.6.0",
 ]
 
 [tool.ruff]
