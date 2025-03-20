@@ -11,8 +11,8 @@ readonly JENKINS_PATH=$2
 readonly WAR_FILENAME=$3
 
 echo "Downloading $JENKINS_WAR_URL to ${JENKINS_PATH}"
-if   [[ $(type -t wget) ]]; then wget -O ${JENKINS_PATH}/${WAR_FILENAME} -q $JENKINS_WAR_URL
-elif [[ $(type -t curl) ]]; then curl -sSL -o ${JENKINS_PATH}/${WAR_FILENAME} $JENKINS_WAR_URL
+if [[ $(type -t curl) ]]; then curl -sSL -o ${JENKINS_PATH}/${WAR_FILENAME} $JENKINS_WAR_URL
+elif   [[ $(type -t wget) ]]; then wget -O ${JENKINS_PATH}/${WAR_FILENAME} -q $JENKINS_WAR_URL
 else
     echo "Could not find wget or curl"
     exit 1
