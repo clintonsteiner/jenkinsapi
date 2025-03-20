@@ -151,8 +151,20 @@ class JenkinsLancher(object):
         if not os.path.exists(plugin_dest_dir):
             os.mkdir(plugin_dest_dir)
 
-        for url in self.plugin_urls:
-            self.install_plugin(url, plugin_dest_dir)
+        threads = []
+        for plugin in self.plugin_urls:
+            thread = threading.Thread(
+                target=self.install_plugin,
+                args=(
+                    plugin,
+                    plugin_dest_dir,
+                ),
+            )
+            thread.start()
+            threads.append(thread)
+
+        for thread in threads:
+            thread.join(timeout=15)
 
     def install_plugin(self, hpi_url, plugin_dest_dir):
         sess = requests.Session()
@@ -223,9 +235,11 @@ class JenkinsLancher(object):
             self.jenkins_home = os.environ.get(
                 "JENKINS_HOME", self.jenkins_home
             )
-            self.update_war()
+            t = threading.Thread(target=self.update_war())
+            t.start()
             self.update_config()
             self.install_plugins()
+            t.join()
 
             os.chdir(self.local_orig_dir)
 
