@@ -33,7 +33,7 @@ jobs:
         working-directory: ./doc
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: html-docs
           path: ./doc/html/
