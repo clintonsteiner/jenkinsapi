@@ -1,8 +1,15 @@
 # Single stage build for Jenkins with pre-installed plugins
-FROM jenkins/jenkins:lts-jdk17
+# Use a recent LTS Jenkins version with JDK 21
+FROM jenkins/jenkins:lts-jdk21
 
 # Install additional system utilities needed for tests
-RUN apt-get update && apt-get install -y gzip && rm -rf /var/lib/apt/lists/*
+# Using system level apt-get with explicit cache handling
+USER root
+RUN apt-get update && \
+    apt-get install -y iputils-ping gzip && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+USER jenkins
 
 # Copy plugins.txt
 COPY plugins.txt /tmp/plugins.txt

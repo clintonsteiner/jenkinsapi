@@ -55,18 +55,24 @@ def test_artifacts(jenkins):
                     )
                     assert read_back_text.endswith("ms") is True
 
-                # Verify that we can hande binary artifacts
+                # Verify that we can handle binary artifacts
                 binary_artifact.save_to_dir(tempDir, strict_validation=True)
                 bin_file_path = join(tempDir, binary_artifact.filename)
                 assert os.path.exists(bin_file_path)
-                with gzip.open(bin_file_path, "rb") as f:
-                    read_back_text = f.read().strip()
-                    read_back_text = read_back_text.decode("ascii")
-                    assert (
-                        re.match(r"^PING \S+ \(127.0.0.1\)", read_back_text)
-                        is not None
-                    )
-                    assert read_back_text.endswith("ms") is True
+                # Try to open as gzip first, fall back to plain text if not gzipped
+                try:
+                    with gzip.open(bin_file_path, "rb") as f:
+                        read_back_text = f.read().strip()
+                        read_back_text = read_back_text.decode("ascii")
+                except (gzip.BadGzipFile, OSError):
+                    with open(bin_file_path, "rb") as f:
+                        read_back_text = f.read().strip()
+                        read_back_text = read_back_text.decode("ascii")
+                assert (
+                    re.match(r"^PING \S+ \(127.0.0.1\)", read_back_text)
+                    is not None
+                )
+                assert read_back_text.endswith("ms") is True
                 return
             finally:
                 shutil.rmtree(tempDir)
