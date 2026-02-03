@@ -7,7 +7,7 @@
         <link rel="prefetch" href="../_static/jenkins.png" as="image">
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2025.12.19 -->
-        <title>Build - JenkinsAPI 0.3.17 documentation</title>
+        <title>Build - JenkinsAPI 0.3.19 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -162,7 +162,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand"> JenkinsAPI 0.3.17 documentation</div></a>
+      <a href="../index.html"><div class="brand"> JenkinsAPI 0.3.19 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -186,7 +186,7 @@
     <img class="sidebar-logo" src="../_static/jenkins.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text"> JenkinsAPI 0.3.17 documentation</span>
+  <span class="sidebar-brand-text"> JenkinsAPI 0.3.19 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -502,6 +502,25 @@ empty dictionary if no parameters are returned.</p>
 <dd></dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="jenkinsapi.build.Build.get_stages">
+<span class="sig-name descname"><span class="pre">get_stages</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/jenkinsapi/build.html#Build.get_stages"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#jenkinsapi.build.Build.get_stages" title="Link to this definition">¶</a></dt>
+<dd><p>Get pipeline stages from a Pipeline build.</p>
+<p>Returns an empty list for non-pipeline builds.
+Returns a list of stage dictionaries, each containing:
+- id: Unique stage identifier
+- name: Stage name
+- status: Stage status (SUCCESS, FAILED, etc.)
+- startTimeMillis: Stage start time
+- durationMillis: Stage duration in milliseconds
+- stageFlowNodes: List of steps within the stage</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of stage dictionaries, or empty list if not a pipeline build</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="jenkinsapi.build.Build.get_status">
 <span class="sig-name descname"><span class="pre">get_status</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/jenkinsapi/build.html#Build.get_status"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#jenkinsapi.build.Build.get_status" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -681,6 +700,7 @@ If the build is still running, return False.</p>
 <li><a class="reference internal" href="#jenkinsapi.build.Build.get_revision"><code class="docutils literal notranslate"><span class="pre">Build.get_revision()</span></code></a></li>
 <li><a class="reference internal" href="#jenkinsapi.build.Build.get_revision_branch"><code class="docutils literal notranslate"><span class="pre">Build.get_revision_branch()</span></code></a></li>
 <li><a class="reference internal" href="#jenkinsapi.build.Build.get_slave"><code class="docutils literal notranslate"><span class="pre">Build.get_slave()</span></code></a></li>
+<li><a class="reference internal" href="#jenkinsapi.build.Build.get_stages"><code class="docutils literal notranslate"><span class="pre">Build.get_stages()</span></code></a></li>
 <li><a class="reference internal" href="#jenkinsapi.build.Build.get_status"><code class="docutils literal notranslate"><span class="pre">Build.get_status()</span></code></a></li>
 <li><a class="reference internal" href="#jenkinsapi.build.Build.get_timestamp"><code class="docutils literal notranslate"><span class="pre">Build.get_timestamp()</span></code></a></li>
 <li><a class="reference internal" href="#jenkinsapi.build.Build.get_upstream_build"><code class="docutils literal notranslate"><span class="pre">Build.get_upstream_build()</span></code></a></li>
@@ -708,7 +728,7 @@ If the build is still running, return False.</p>
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=54ff36c9"></script>
+</div><script src="../_static/documentation_options.js?v=189d1112"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
