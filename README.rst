@@ -90,20 +90,55 @@ For other issues, please refer to the `support URL <https://github.com/pycontrib
 Development
 -----------
 
-* Make sure that you have Java_ installed. Jenkins will be automatically
-  downloaded and started during tests.
-* Create virtual environment for development
-* Install package in development mode
+### Quick Start
+
+1. Create and activate a virtual environment
 
 .. code-block:: bash
 
     uv sync
 
-* Make your changes, write tests and check your code
+2. Run tests
 
 .. code-block:: bash
 
     uv run pytest -sv
+
+### Using Docker for Testing (Recommended)
+
+Jenkins can be started in Docker for testing, which is significantly faster than downloading and installing Jenkins.
+
+**Requirements:**
+- Docker installed and running
+
+**Local Testing with Docker:**
+
+.. code-block:: bash
+
+    # Build the Docker image locally
+    cd ci/
+    docker build -t jenkinsapi-jenkins:local .
+
+    # Run tests with Docker
+    JENKINS_DOCKER_IMAGE=jenkinsapi-jenkins:local pytest -sv jenkinsapi_tests/systests/
+
+**Using Pre-built Image from GitHub Container Registry:**
+
+.. code-block:: bash
+
+    # Tests will automatically pull the image if available
+    pytest -sv jenkinsapi_tests/systests/
+
+**Using War File (Fallback):**
+
+If Docker is not available or you want to use the traditional approach:
+
+.. code-block:: bash
+
+    # Make sure Java is installed first
+    SKIP_DOCKER=1 pytest -sv jenkinsapi_tests/systests/
+
+For more detailed Docker setup and development instructions, see `ci/README.md <ci/README.md>`_
 
 Python versions
 ---------------
@@ -135,5 +170,3 @@ Project Contributors
 * Clinton Steiner (clintonsteiner@gmail.com)
 
 Please do not contact these contributors directly for support questions! Use the GitHub tracker instead.
-
-.. _Java: https://www.oracle.com/java/technologies/downloads/#java21
