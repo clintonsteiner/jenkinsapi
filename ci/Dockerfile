@@ -1,6 +1,9 @@
 # Single stage build for Jenkins with pre-installed plugins
 FROM jenkins/jenkins:lts-jdk17
 
+# Install additional system utilities needed for tests
+RUN apt-get update && apt-get install -y gzip && rm -rf /var/lib/apt/lists/*
+
 # Copy plugins.txt
 COPY plugins.txt /tmp/plugins.txt
 
