@@ -118,4 +118,4 @@ jobs:
 
     - name: Test with pytest
       run: |
-        uv run pytest -sv --cov=jenkinsapi --cov-report=term-missing --cov-report=xml jenkinsapi_tests
+        uv run pytest -sv --cov=jenkinsapi --cov-report=term-missing --cov-report=xml -n auto jenkinsapi_tests
