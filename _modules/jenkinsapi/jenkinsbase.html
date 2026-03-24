@@ -211,6 +211,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../submodules/jenkinsbase.html">Jenkinsbase</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../submodules/jobs.html">Jobs and job</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../submodules/label.html">Label</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../submodules/lockable_resources.html">Lockable Resources</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../submodules/mutable_jenkins.html">Mutable_jenkins_thing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../submodules/nodes.html">Nodes and node</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../submodules/plugins.html">Plugins and Plugin</a></li>
@@ -264,7 +265,6 @@
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">ast</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pprint</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
@@ -365,6 +365,19 @@
             <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">json</span><span class="o">.</span><span class="n">JSONDecodeError</span><span class="p">:</span>
+            <span class="c1"># Fallback: Some Jenkins API endpoints return Python literal syntax</span>
+            <span class="c1"># (True, False, None) instead of JSON (true, false, null)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">converted</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;True&quot;</span><span class="p">,</span> <span class="s2">&quot;true&quot;</span><span class="p">)</span>
+                    <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;False&quot;</span><span class="p">,</span> <span class="s2">&quot;false&quot;</span><span class="p">)</span>
+                    <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;None&quot;</span><span class="p">,</span> <span class="s2">&quot;null&quot;</span><span class="p">)</span>
+                <span class="p">)</span>
+                <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">converted</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s2">&quot;Inappropriate content found at </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="n">JenkinsAPIException</span><span class="p">(</span><span class="s2">&quot;Cannot parse </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s2">&quot;Inappropriate content found at </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
             <span class="k">raise</span> <span class="n">JenkinsAPIException</span><span class="p">(</span><span class="s2">&quot;Cannot parse </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span></div>
