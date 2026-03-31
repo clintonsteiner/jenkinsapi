@@ -657,7 +657,10 @@ class Job(JenkinsBase, MutableJenkinsThing):
             Useful for debugging and validation workflows.
         """
         url = self.get_config_xml_url()
-        config = str(config)  # cast unicode in case of Python 2
+        if isinstance(config, bytes):
+            config = config.decode(encoding)
+        else:
+            config = str(config)  # cast unicode in case of Python 2
         response = self.jenkins.requester.post_url(
             url, params={}, data=config.encode(encoding)
         )
@@ -832,3 +835,17 @@ class Job(JenkinsBase, MutableJenkinsThing):
 
     def toggle_keep_build(self, build_number):
         self.get_build(build_number).toggle_keep()
+
+    def change_description(self, description: str) -> None:
+        """
+        Update the description of this job.
+
+        :param description: new description text
+        """
+        element_tree = self._get_config_element_tree()
+        node = element_tree.find("description")
+        if node is None:
+            node = ET.SubElement(element_tree, "description")
+        if node.text != description:
+            node.text = description
+            self.update_config(ET.tostring(element_tree))
