@@ -40,30 +40,48 @@ class Fingerprint(JenkinsBase):
     def __str__(self) -> str:
         return self.id_
 
-    def valid(self) -> bool:
+    def _enable_fingerprints(self) -> None:
+        script = (
+            "Jenkins.instance"
+            ".getDescriptorByType(jenkins.model.GlobalFingerprintConfiguration.class)"
+            ".setEnabled(true)\n"
+            "Jenkins.instance.save()"
+        )
+        self.jenkins_obj.run_groovy_script(script)
+
+    def valid(self, enable_if_disabled: bool = False) -> bool:
         """
         Return True / False if valid. If returns True, self.unknown is
         set to either True or False, and can be checked if we have
         positive validity (fingerprint known at server) or negative
         validity (fingerprint not known at server, but not really an
         error).
+
+        If *enable_if_disabled* is True and the server returns 404
+        (fingerprints disabled), the fingerprint feature is enabled via
+        a Groovy script and the poll is retried.  The default is False
+        to avoid silently mutating Jenkins configuration.
         """
         try:
             self.poll()
             self.unknown = False
         except requests.exceptions.HTTPError as err:
-            # We can't really say anything about the validity of
-            # fingerprints not found -- but the artifact can still
-            # exist, so it is not possible to definitely say they are
-            # valid or not.
             # The response object is of type: requests.models.Response
             # extract the status code from it
             response_obj: Any = err.response
             if response_obj.status_code == 404:
-                logging.warning(
-                    "MD5 cannot be checked if fingerprints are not enabled"
-                )
-                self.unknown = True
+                if enable_if_disabled:
+                    self._enable_fingerprints()
+                    try:
+                        self.poll()
+                        self.unknown = False
+                    except requests.exceptions.HTTPError:
+                        self.unknown = True
+                else:
+                    log.info(
+                        "MD5 cannot be checked if fingerprints are not enabled"
+                    )
+                    self.unknown = True
                 return True
 
             return False
